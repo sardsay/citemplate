@@ -22,6 +22,7 @@ class Users_model extends CI_Model
         if ($max!=0) {
             $this->db->limit($max,$st);
         }
+        $this->db->where('status != ',2);
         $this->db->from($this->table.' as u');
         $this->db->join('user_groups as g','u.group_id=g.id');
         $this->Query = $this->db->get();
